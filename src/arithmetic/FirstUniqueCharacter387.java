@@ -44,7 +44,7 @@ public class FirstUniqueCharacter387 {
         }
         return -1;
 
-        //entrySet时,顺序已经被打乱,因此不能使用
+        //注意: 获取entrySet时,顺序已经被打乱,因此不能使用
         //for (Map.Entry<Character, Integer> entry : charMap.entrySet()){
         //    System.out.println(entry.getKey() + " : " + entry.getValue());
         //    if (entry.getValue() == 1){

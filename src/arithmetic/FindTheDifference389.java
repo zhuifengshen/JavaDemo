@@ -32,10 +32,13 @@ public class FindTheDifference389 {
 
     private static char findTheDifference1(String s, String t){
         Character[] chars = new Character[s.length()];
+        //转换为Character数组
         for (int i = 0; i < s.length(); i++) {
             chars[i] = s.charAt(i);
         }
+        //转换为Character List
         List charList = Arrays.asList(chars);
+        //依次变量判断
         for (int i = 0; i < t.length(); i++) {
             if (!charList.contains(t.charAt(i))){
                 return t.charAt(i);

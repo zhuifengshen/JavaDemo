@@ -18,6 +18,7 @@ public class TwoSum1 {
     }
     public static int[] twoSum(int[] nums, int target) {
             for(int i = 0; i < nums.length; i++){
+                //此处j=i+1即可,因为之前部分已遍历过,另外主要i!=j的判断
                 for (int j = i + 1; j < nums.length; j++) {
                     if (i != j && nums[i] == target - nums[j]){
                         return new int[]{i,j};
@@ -27,6 +28,7 @@ public class TwoSum1 {
             throw new IllegalArgumentException("No two sum solution");
     }
 
+    //定义Node节点类,用于保存数值和对应的下标索引
     static class Node implements Comparable<Node>{
         int value, index;
         public Node(int value, int index){
@@ -44,6 +46,7 @@ public class TwoSum1 {
         for (int i = 0; i < nodes.length; i++) {
             nodes[i] = new Node(nums[i], i);
         }
+        //对节点进行排序,以便下面比较两个数之和的大小
         Arrays.sort(nodes);
         int i = 0, j= nums.length - 1;
         while (i < j){
@@ -61,12 +64,15 @@ public class TwoSum1 {
     }
 
     public static int[] twoSum2(int[] nums, int target){
+        //将每个数及其下标作为HashMap的一个元素
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
             map.put(nums[i], i);
         }
+        //利用HashMap的containsKey方法, 对每个数进行判断
         for (int i = 0; i < nums.length; i++) {
             int complement = target - nums[i];
+            //此处注意两个数下标不能相同的判断
             if (map.containsKey(complement) && map.get(complement) != i){
                 return new int[]{i, map.get(complement)};
             }
