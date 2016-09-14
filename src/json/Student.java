@@ -1,4 +1,4 @@
-package mike.json;
+package json;
 
 /**
  * Created by Devin on 2016/9/9.
